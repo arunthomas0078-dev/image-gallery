@@ -7,7 +7,9 @@ const  ImageInfoView  = (props) => {
             <p className = {`image-author ${props.additionalClass}`}>
                 <span className ="font-weight-bold">Author: </span>{props.image.author}
             </p>
-            <p className ={`image-description ${props.additionalClass} ${props.descriptionClass}`}>{props.image.description}</p>
+            <p className ={`image-description ${props.additionalClass} ${props.descriptionClass}`}>
+                {props.image.description}
+            </p>
         </>
     );
 }

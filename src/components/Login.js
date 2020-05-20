@@ -14,9 +14,12 @@ class Login extends Component {
 
     onLoginClick = async(e) => {
         e.preventDefault();
-       const isValid = await this.validateCredentials();
+       const isValid = await this.validate();
        if(isValid) {
-            const isLoginSucceeded = await this.props.loginUser(this.state.username, this.state.password);
+            const isLoginSucceeded = await this.props.loginUser({
+                userName: this.state.username, 
+                password: this.state.password
+            });
             if(!isLoginSucceeded){
                 this.setState({errorMessage: "Invalid username or password"});
                 return;
@@ -27,7 +30,7 @@ class Login extends Component {
         }
     }
 
-    validateCredentials = async() => {
+    validate = async() => {
         let isValid = true;
         if(this.state.username.trim().length === 0 ){
             this.setState({errorMessage: 'User name is required.'});

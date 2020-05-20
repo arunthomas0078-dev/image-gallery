@@ -6,9 +6,10 @@ const GalleryItem = (props) => {
         <div key ={props.image.id} 
             className = "gallery-thumbnail gallery-thumbnail-container" 
             onClick = {() => props.imageClickHandler(props.image)}>
-                <img src ={props.image.url} style ={{width: "100%"}}></img>
+                <img src ={props.image.url} 
+                     style ={{width: "100%"}}/>
                 <div className="gallery-thumbnail-text">
-                    <ImageInfoView {...props}></ImageInfoView>
+                    <ImageInfoView {...props}/>
                 </div>
         </div> 
     )

@@ -2,13 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import { MemoryRouter  } from 'react-router-dom';
+import axios from 'axios';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import configureStore from './store/ConfigureStore';
 
 
-//axios.defaults.baseURL = `https://my.api.mockaroo.com/`;
+axios.defaults.baseURL = `https://imagegallery-f0af7.firebaseio.com/`;
 
 const store = configureStore();
 const rootElement = document.getElementById('root');

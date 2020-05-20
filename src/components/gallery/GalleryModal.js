@@ -15,12 +15,16 @@ const GalleryModal = (props) => {
             <div className="gallery-modal-content">
                 <div className="row">
                     <div className="col-md-12">
-                        <div className="float-right gallery-modal-close" onClick={props.closeModalHandler}><i className="fal fa-times"></i></div>              
+                        <div className="float-right gallery-modal-close" 
+                             onClick={props.closeModalHandler}>
+                                 <i className="fal fa-times"></i>
+                        </div>              
                     </div>
                 </div>
                 <div className="row">
                     <div className="col-md-12">
-                        <img src = {props.image.url} className ="gallery-modal-image"></img>
+                        <img src = {props.image.url} 
+                             className ="gallery-modal-image"/>
                     </div>
                 </div>
                 <div className="row">

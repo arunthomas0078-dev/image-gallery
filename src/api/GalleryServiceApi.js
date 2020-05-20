@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const getImages = async() => {
     try{
-       const response = await axios.get(`https://imagegallery-f0af7.firebaseio.com/images.json`);
+       const response = await axios.get(`images.json`);
        if(response) {
            const data = response.data;
            const imagesList =Object.keys(data).map((id) => ({
@@ -28,7 +28,7 @@ export const saveImageInfo = async(image) => {
             url: image.url
         };
 
-       const response = await axios.put(`https://imagegallery-f0af7.firebaseio.com/images/${image.id}.json`, imageInfo);
+       const response = await axios.put(`images/${image.id}.json`, imageInfo);
        if(response.status == 200)
             return true;
     }

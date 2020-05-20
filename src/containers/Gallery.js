@@ -27,12 +27,20 @@ class Gallery extends Component {
     }
 
     async componentDidUpdate(prevProps, prevState) {
-        if(prevState.isEdit !== this.props.match.params.isEdit){
-            await this.setState({
-                ...this.state,
-                isEdit: this.props.match.params.isEdit
-            })
-        }
+        if(this.props.loggedInUser) {
+            if(prevState.isEdit !== this.props.match.params.isEdit){
+                        await this.setState({
+                            ...this.state,
+                            isEdit: this.props.match.params.isEdit 
+                        })
+                    }
+            }
+            else if(this.state.isEdit) {
+                await this.setState({
+                    ...this.state,
+                    isEdit: false
+                })
+            }
     }
 
     async loadImages() {
@@ -103,6 +111,6 @@ class Gallery extends Component {
 }
 
 export default connect(
-    state => state.gallery,
+    state => ({ ...state.gallery, ...state.application }),
     dispatch => bindActionCreators(imagesActionCreators, dispatch)
 )(Gallery);

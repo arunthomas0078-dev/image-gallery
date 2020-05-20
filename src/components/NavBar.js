@@ -44,19 +44,23 @@ class NavBar extends Component {
                 <div className ="col-md-12">
                     <div className="gallery-nav-bar">
                         <ul className="gallery-nav float-left">
-                            <li className={this.state.galleryLinkClassName} onClick={(e) => this.onLinkClick(NAVIGATION_LINKs.GALLERY_LINK, e)}>
+                            <li className={this.state.galleryLinkClassName} 
+                                onClick={(e) => this.onLinkClick(NAVIGATION_LINKs.GALLERY_LINK, e)}>
                                 <Link to="/gallery">Gallery</Link>
                             </li>
                             {
                                 this.props.loggedInUser?
-                                <li className={this.state.editGalleryLinkClassName} onClick={(e) => this.onLinkClick(NAVIGATION_LINKs.EDIT_GALLERY_LINK, e)}>
+                                <li className={this.state.editGalleryLinkClassName} 
+                                    onClick={(e) => this.onLinkClick(NAVIGATION_LINKs.EDIT_GALLERY_LINK, e)}>
                                     <Link to="/gallery/true">Edit Gallery</Link>
                                 </li>
                                 : null
                             }
                         </ul>    
                         <div 
-                            onClick = {this.props.loggedInUser? this.props.logOutClick : this.props.onLoginClick} 
+                            onClick = {this.props.loggedInUser? 
+                                       this.props.logOutClick : 
+                                       this.props.onLoginClick} 
                             className = "float-right loginLink">
                             {this.props.loggedInUser? 
                             'Logout' : 
