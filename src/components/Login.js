@@ -8,6 +8,12 @@ class Login extends Component {
         errorMessage: null
     }
 
+    userNameRef = React.createRef();
+
+    async componentDidMount(){
+        this.userNameRef.current.focus();
+    }
+
     onChangeEvent = (e) =>{
         this.setState({[e.target.name] : e.target.value});
     }
@@ -54,6 +60,7 @@ class Login extends Component {
                     <div className="row form-group">
                         <div className="col-12 pt-3">
                             <input 
+                                ref = {this.userNameRef}
                                 type="text" 
                                 className ="user-input-box ml-2" 
                                 placeholder="Username"  
